@@ -1,0 +1,7 @@
+{
+  "name": "Fitzgerald Kitchen Installs",
+  "description": "High-end, bespoke kitchen installation services by master craftsman Fitzgerald. Luxury finishes and professional project management for discerning homeowners.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
