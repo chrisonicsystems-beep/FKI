@@ -22,11 +22,11 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-black/90 backdrop-blur-xl py-3 border-b border-white/5' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-black/90 backdrop-blur-xl py-3 border-b border-white/5' : 'bg-transparent py-6 md:py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex flex-col">
-          <span className="text-2xl font-bold tracking-[0.2em] text-silver serif">FITZGERALD</span>
-          <span className="text-[10px] text-gold uppercase tracking-[0.4em] font-bold">Kitchen Installs NZ</span>
+          <span className="text-lg md:text-2xl font-bold tracking-[0.15em] md:tracking-[0.2em] text-silver serif">FITZGERALD</span>
+          <span className="text-[8px] md:text-[10px] text-gold uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold">Kitchen Installs NZ</span>
         </a>
 
         {/* Desktop Nav */}
@@ -50,14 +50,14 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-gold" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        <button className="md:hidden text-gold p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black fixed inset-0 z-40 flex flex-col items-center justify-center space-y-10">
+        <div className="md:hidden bg-black fixed inset-0 z-40 flex flex-col items-center justify-center space-y-10 p-6">
           <button className="absolute top-8 right-6 text-gold" onClick={() => setIsMenuOpen(false)}>
             <X size={32} />
           </button>
@@ -65,12 +65,20 @@ const Navbar: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-3xl font-light uppercase tracking-[0.2em] text-white hover:text-gold transition-colors"
+              className="text-3xl font-light uppercase tracking-[0.2em] text-white hover:text-gold transition-colors text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
             </a>
           ))}
+          <a 
+            href="tel:+64210745218" 
+            className="flex items-center space-x-4 border border-gold px-8 py-4 mt-8"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Phone size={20} className="text-gold" />
+            <span className="text-lg font-bold tracking-widest text-gold uppercase">021 074 5218</span>
+          </a>
         </div>
       )}
     </nav>
